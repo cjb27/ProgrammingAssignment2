@@ -1,6 +1,6 @@
 ## Matrix inversion computations are costly from a computer resources 
-## perspective.  This function runs more efficiently because  it uses a cache 
-##to find the inverse rather than computing it repeatedly. 
+## perspective.  This pair of functions runs more efficiently because it uses a cache 
+##to find the inverse rather than computing it repeatedly.
 
 ##These are a pair of functions that cache the inverse of a matrix so 
 ##that it doesn't have compute every time
@@ -46,19 +46,18 @@ cacheSolve <- function(x, ...) {
     # get the cached value
     inverse <- y$getInverse()
     
-    # if a cached value exists return it
+    # if a cached value exists return cached value
     if(!is.null(inverse)) {
       message("getting cached data")
       return(inverse)
     }
     
-    # otherwise get the matrix, caclulate the inverse and store it in
-    # the cache
+    # if cached value does not exist, get the matrix and caclulate the 
+    #inverse and store it in the cache
     data <- y$getMatrix()
     inverse <- solve(data)
     y$cacheInverse(inverse)
     
     # return the inverse
     inverse
-  }
 }
