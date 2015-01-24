@@ -1,11 +1,9 @@
-## Matrix inversion computations are costly from a computer resources 
-## perspective.  This pair of functions runs more efficiently because it uses a cache 
-##to find the inverse rather than computing it repeatedly.
+##Matrix inversion is usually a costly computation.  This approach is more
+##cost efficient because it looks to a cache first to find the inverse of 
+##a matrix rather than computing it repeatedly.
 
-##These are a pair of functions that cache the inverse of a matrix so 
-##that it doesn't have compute every time
-
-## This first function creates a special "matrix" object that can cache its inverse.
+## This first function creates a special "matrix" object that can cache its 
+##inverse.
 
 makeCacheMatrix <- function(x = matrix()) {
   cache <- NULL
